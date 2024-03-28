@@ -1,0 +1,2596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="i1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/BR.Logic">
+  <CompilationType>CSharp</CompilationType>
+  <Description>Новый скрипт без наполнения.</Description>
+  <Id>4e27f020-1215-44fb-b80b-8cbbf9515ee7</Id>
+  <Logic z:Id="i2" i:type="ExecutedStep">
+    <Childs>
+      <AbstractStep z:Id="i3" i:type="CommentStep">
+        <Childs />
+        <Id>832ba251-f738-4239-9d30-0e6bca10ef0c</Id>
+        <Parent z:Ref="i2" />
+        <PropertyValues />
+        <SelectedOptionId i:nil="true" />
+        <Text>Описание:
+Запуск 1С через командную строку
+Для запуска указывается кластер и имя ИБ
+
+По необходимости зайти под определенным пользователем - 
+дополнительно указывается логин и пароль
+
+Т.к. PIX Master не позволяет хранить пустые значения - если переданный логин "-"
+- робот проигнорирует данные параметры  и попробуется подключиться под AD УЗ</Text>
+      </AbstractStep>
+      <AbstractStep z:Id="i4" i:type="ExecutedStep">
+        <Childs />
+        <Id>bcb8d390-c0fb-4612-ae40-7a1437e023a1</Id>
+        <Parent z:Ref="i2" />
+        <PropertyValues>
+          <PropertyValue z:Id="i5">
+            <PropertyName>Value</PropertyName>
+            <_dataType>Expression</_dataType>
+            <_expression>$"Enterprise /S\"{in_str_1c}\""</_expression>
+            <_value i:nil="true" />
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i6">
+            <PropertyName>To</PropertyName>
+            <_dataType>Expression</_dataType>
+            <_expression>str_args</_expression>
+            <_value i:nil="true" />
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+        </PropertyValues>
+        <SelectedOptionId i:nil="true" />
+        <EnableStatus>true</EnableStatus>
+        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+        <RetryCount>-1</RetryCount>
+        <Text>Присвоить значение - Аргументы запуска 1С - Кластер\ИБ</Text>
+        <_activityFullName>BR.Core.Base.Assign</_activityFullName>
+      </AbstractStep>
+      <AbstractStep z:Id="i7" i:type="ExecutedStep">
+        <Childs>
+          <AbstractStep z:Id="i8" i:type="ExecutedStep">
+            <Childs>
+              <AbstractStep z:Id="i9" i:type="ExecutedStep">
+                <Childs />
+                <Id>379fa9bf-7a77-4c12-81d7-81947529c7c6</Id>
+                <Parent z:Ref="i8" />
+                <PropertyValues>
+                  <PropertyValue z:Id="i10">
+                    <PropertyName>Value</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>new System.Net.NetworkCredential(string.Empty, in_secStr_1cPassword).Password</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                  <PropertyValue z:Id="i11">
+                    <PropertyName>To</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>str_1cPassword</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                </PropertyValues>
+                <SelectedOptionId i:nil="true" />
+                <EnableStatus>true</EnableStatus>
+                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                <RetryCount>-1</RetryCount>
+                <Text>Присвоить значение - Расшифровать пароль 1С для запуска в консоли</Text>
+                <_activityFullName>BR.Core.Base.Assign</_activityFullName>
+              </AbstractStep>
+              <AbstractStep z:Id="i12" i:type="ExecutedStep">
+                <Childs />
+                <Id>d5f3224d-e4ba-4885-af00-c85d95d728f9</Id>
+                <Parent z:Ref="i8" />
+                <PropertyValues>
+                  <PropertyValue z:Id="i13">
+                    <PropertyName>Value</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>$"{str_args}  /n\"{in_str_1cLogin}\" /p\"{str_1cPassword}\""</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                  <PropertyValue z:Id="i14">
+                    <PropertyName>To</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>str_args</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                </PropertyValues>
+                <SelectedOptionId i:nil="true" />
+                <EnableStatus>true</EnableStatus>
+                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                <RetryCount>-1</RetryCount>
+                <Text>Присвоить значение - Аргументы запуска 1С</Text>
+                <_activityFullName>BR.Core.Base.Assign</_activityFullName>
+              </AbstractStep>
+            </Childs>
+            <Id>0845eaf3-d691-4bd5-b305-7f9fcbbaf4a8</Id>
+            <Parent z:Ref="i7" />
+            <PropertyValues />
+            <SelectedOptionId i:nil="true" />
+            <EnableStatus>true</EnableStatus>
+            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+            <RetryCount>-1</RetryCount>
+            <Text></Text>
+            <_activityFullName>BR.Core.Base.IfTrue</_activityFullName>
+          </AbstractStep>
+          <AbstractStep z:Id="i15" i:type="ExecutedStep">
+            <Childs />
+            <Id>de3e445e-d14f-4667-a578-b8524964f32e</Id>
+            <Parent z:Ref="i7" />
+            <PropertyValues />
+            <SelectedOptionId i:nil="true" />
+            <EnableStatus>true</EnableStatus>
+            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+            <RetryCount>-1</RetryCount>
+            <Text></Text>
+            <_activityFullName>BR.Core.Base.IfFalse</_activityFullName>
+          </AbstractStep>
+        </Childs>
+        <Id>f716b97d-a0df-46e3-b3b7-e6515e6bb493</Id>
+        <Parent z:Ref="i2" />
+        <PropertyValues>
+          <PropertyValue z:Id="i16">
+            <PropertyName>Condition</PropertyName>
+            <_dataType>Expression</_dataType>
+            <_expression>string.IsNullOrEmpty(in_str_1cLogin) == false &amp;&amp; in_str_1cLogin.Trim() != "-"</_expression>
+            <_value i:nil="true" />
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+        </PropertyValues>
+        <SelectedOptionId i:nil="true" />
+        <EnableStatus>true</EnableStatus>
+        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+        <RetryCount>-1</RetryCount>
+        <Text>Логин заполнен корректно?</Text>
+        <_activityFullName>BR.Core.Base.If</_activityFullName>
+      </AbstractStep>
+      <AbstractStep z:Id="i17" i:type="ExecutedStep">
+        <Childs />
+        <Id>8f005866-543a-4aac-8e5c-e865f9007a7d</Id>
+        <Parent z:Ref="i2" />
+        <PropertyValues>
+          <PropertyValue z:Id="i18">
+            <PropertyName>FilePath</PropertyName>
+            <_dataType>Expression</_dataType>
+            <_expression>in_str_1cExePath</_expression>
+            <_value i:nil="true" />
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i19">
+            <PropertyName>Arguments</PropertyName>
+            <_dataType>Expression</_dataType>
+            <_expression>str_args</_expression>
+            <_value i:nil="true" />
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i20">
+            <PropertyName>Timeout</PropertyName>
+            <_dataType>Value</_dataType>
+            <_expression i:nil="true" />
+            <_value xmlns:d7p1="http://www.w3.org/2001/XMLSchema" i:type="d7p1:int">0</_value>
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i21">
+            <PropertyName>EncodingString</PropertyName>
+            <_dataType>Value</_dataType>
+            <_expression i:nil="true" />
+            <_value xmlns:d7p1="http://www.w3.org/2001/XMLSchema" i:type="d7p1:string">utf-8</_value>
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i22">
+            <PropertyName>CreateNoWindow</PropertyName>
+            <_dataType>Value</_dataType>
+            <_expression i:nil="true" />
+            <_value xmlns:d7p1="http://www.w3.org/2001/XMLSchema" i:type="d7p1:boolean">true</_value>
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i23">
+            <PropertyName>UseShellExecute</PropertyName>
+            <_dataType>Value</_dataType>
+            <_expression i:nil="true" />
+            <_value xmlns:d7p1="http://www.w3.org/2001/XMLSchema" i:type="d7p1:boolean">true</_value>
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i24">
+            <PropertyName>ProcessId</PropertyName>
+            <_dataType>Expression</_dataType>
+            <_expression></_expression>
+            <_value i:nil="true" />
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+          <PropertyValue z:Id="i25">
+            <PropertyName>ResultProcess</PropertyName>
+            <_dataType>Expression</_dataType>
+            <_expression></_expression>
+            <_value i:nil="true" />
+            <_xpathSettings xmlns:d7p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+          </PropertyValue>
+        </PropertyValues>
+        <SelectedOptionId>0</SelectedOptionId>
+        <EnableStatus>true</EnableStatus>
+        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+        <RetryCount>-1</RetryCount>
+        <Text>Запустить процесс - 1С с параметрами</Text>
+        <_activityFullName>Activities.Processes.StartProcess</_activityFullName>
+      </AbstractStep>
+      <AbstractStep z:Id="i26" i:type="ExecutedStep">
+        <Childs>
+          <AbstractStep z:Id="i27" i:type="ExecutedStep">
+            <Childs />
+            <Id>ba632cd5-30cc-4e0c-a9fd-b27ed5575a4b</Id>
+            <Parent z:Ref="i26" />
+            <PropertyValues>
+              <PropertyValue z:Id="i28">
+                <PropertyName>Value</PropertyName>
+                <_dataType>Expression</_dataType>
+                <_expression>DateTime.Now.AddMinutes(5)</_expression>
+                <_value i:nil="true" />
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+              </PropertyValue>
+              <PropertyValue z:Id="i29">
+                <PropertyName>To</PropertyName>
+                <_dataType>Expression</_dataType>
+                <_expression>dtime_maxWait</_expression>
+                <_value i:nil="true" />
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+              </PropertyValue>
+            </PropertyValues>
+            <SelectedOptionId i:nil="true" />
+            <EnableStatus>true</EnableStatus>
+            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+            <RetryCount>-1</RetryCount>
+            <Text>Присвоить значение - Максимально время ожидания</Text>
+            <_activityFullName>BR.Core.Base.Assign</_activityFullName>
+          </AbstractStep>
+          <AbstractStep z:Id="i30" i:type="ExecutedStep">
+            <Childs />
+            <Id>8b1b0e13-c97d-4413-94fc-5de11235c868</Id>
+            <Parent z:Ref="i26" />
+            <PropertyValues>
+              <PropertyValue z:Id="i31">
+                <PropertyName>Result</PropertyName>
+                <_dataType>Expression</_dataType>
+                <_expression>bool_settingsExists</_expression>
+                <_value i:nil="true" />
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+              </PropertyValue>
+              <PropertyValue z:Id="i32">
+                <PropertyName>TimeToSearchElement</PropertyName>
+                <_dataType>Expression</_dataType>
+                <_expression>5</_expression>
+                <_value i:nil="true" />
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+              </PropertyValue>
+              <PropertyValue z:Id="i33">
+                <PropertyName>XPath</PropertyName>
+                <_dataType>XPath</_dataType>
+                <_expression i:nil="true" />
+                <_value i:nil="true" />
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" z:Id="i34">
+                  <d9p1:Nodes xmlns:d10p1="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel">
+                    <d10p1:list>
+                      <d9p1:XPathNode z:Id="i35">
+                        <d9p1:AttributeOperators xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                        </d9p1:AttributeOperators>
+                        <d9p1:Attributes>
+                          <d10p1:list>
+                            <d9p1:XPathAttribute z:Id="i36">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>true</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>2</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name></d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i37">
+                              <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Contains</d9p1:Operator>
+                              <d9p1:Value>'TopLevelFrame'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ClassName</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i38">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Window'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i39">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Win32'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>FrameworkId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i40">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsContentElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i41">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsControlElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i42">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsEnabled</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i43">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsKeyboardFocusable</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i44">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'окно'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LocalizedControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i45">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'K7:063 - Спортивная / 1.7.133.0 / RPA_Bot_Sportivnaya'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>Name</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i46">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'2312'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ProcessId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i47">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'0'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_ChildId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i48">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'K7:063 - Спортивная / 1.7.133.0 / RPA_Bot_Sportivnaya'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_Name</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i49">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>TransformPattern_CanMove</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i50">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>TransformPattern_CanResize</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i51">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>TransformPattern_CanRotate</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i52">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>WindowPattern_CanMaximize</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i53">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>WindowPattern_CanMinimize</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i54">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>WindowPattern_IsModal</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i55">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>WindowPattern_IsTopmost</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                          </d10p1:list>
+                        </d9p1:Attributes>
+                        <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                        <d9p1:Name>Window</d9p1:Name>
+                      </d9p1:XPathNode>
+                      <d9p1:XPathNode z:Id="i56">
+                        <d9p1:AttributeOperators xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                        </d9p1:AttributeOperators>
+                        <d9p1:Attributes>
+                          <d10p1:list>
+                            <d9p1:XPathAttribute z:Id="i57">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>true</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value i:nil="true" />
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name></d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i58">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Pane'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i59">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsContentElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i60">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsControlElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i61">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsEnabled</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i62">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'панель'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LocalizedControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i63">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'2312'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ProcessId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i64">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'0'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_ChildId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                          </d10p1:list>
+                        </d9p1:Attributes>
+                        <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                        <d9p1:Name>Pane</d9p1:Name>
+                      </d9p1:XPathNode>
+                      <d9p1:XPathNode z:Id="i65">
+                        <d9p1:AttributeOperators xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                        </d9p1:AttributeOperators>
+                        <d9p1:Attributes>
+                          <d10p1:list>
+                            <d9p1:XPathAttribute z:Id="i66">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>true</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>1</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name></d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i67">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Pane'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i68">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsContentElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i69">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsControlElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i70">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsEnabled</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i71">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'панель'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LocalizedControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i72">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'2312'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ProcessId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i73">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'0'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_ChildId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                          </d10p1:list>
+                        </d9p1:Attributes>
+                        <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                        <d9p1:Name>Pane</d9p1:Name>
+                      </d9p1:XPathNode>
+                      <d9p1:XPathNode z:Id="i74">
+                        <d9p1:AttributeOperators xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                        </d9p1:AttributeOperators>
+                        <d9p1:Attributes>
+                          <d10p1:list>
+                            <d9p1:XPathAttribute z:Id="i75">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>true</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>4</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name></d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i76">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Pane'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i77">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsContentElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i78">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsControlElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i79">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsEnabled</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i80">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'панель'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LocalizedControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i81">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'2312'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ProcessId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i82">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'0'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_ChildId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                          </d10p1:list>
+                        </d9p1:Attributes>
+                        <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                        <d9p1:Name>Pane</d9p1:Name>
+                      </d9p1:XPathNode>
+                      <d9p1:XPathNode z:Id="i83">
+                        <d9p1:AttributeOperators xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                        </d9p1:AttributeOperators>
+                        <d9p1:Attributes>
+                          <d10p1:list>
+                            <d9p1:XPathAttribute z:Id="i84">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>true</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value i:nil="true" />
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name></d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i85">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Pane'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i86">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'False'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsContentElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i87">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsControlElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i88">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsEnabled</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i89">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'панель'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LocalizedControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i90">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'2312'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ProcessId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i91">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'0'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_ChildId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                          </d10p1:list>
+                        </d9p1:Attributes>
+                        <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                        <d9p1:Name>Pane</d9p1:Name>
+                      </d9p1:XPathNode>
+                      <d9p1:XPathNode z:Id="i92">
+                        <d9p1:AttributeOperators xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                        </d9p1:AttributeOperators>
+                        <d9p1:Attributes>
+                          <d10p1:list>
+                            <d9p1:XPathAttribute z:Id="i93">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>true</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value i:nil="true" />
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name></d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i94">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'ToolBar'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i95">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsContentElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i96">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsControlElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i97">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsEnabled</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i98">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsKeyboardFocusable</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i99">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'панель инструментов'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LocalizedControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i100">
+                              <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Главное меню'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>Name</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i101">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'2312'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ProcessId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i102">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'0'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_ChildId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i103">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Главное меню'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LegacyIAccessiblePattern_Name</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                          </d10p1:list>
+                        </d9p1:Attributes>
+                        <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                        <d9p1:Name>ToolBar</d9p1:Name>
+                      </d9p1:XPathNode>
+                      <d9p1:XPathNode z:Id="i104">
+                        <d9p1:AttributeOperators xmlns:d13p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                          <d13p1:string>and</d13p1:string>
+                        </d9p1:AttributeOperators>
+                        <d9p1:Attributes>
+                          <d10p1:list>
+                            <d9p1:XPathAttribute z:Id="i105">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>true</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>1</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name></d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i106">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Button'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i107">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsContentElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i108">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsControlElement</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i109">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsEnabled</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i110">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'True'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>IsKeyboardFocusable</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i111">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'кнопка'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>LocalizedControlType</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i112">
+                              <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'Файл'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>Name</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                            <d9p1:XPathAttribute z:Id="i113">
+                              <d9p1:IsEnabled>false</d9p1:IsEnabled>
+                              <d9p1:IsPositionAttribute>false</d9p1:IsPositionAttribute>
+                              <d9p1:Operator>Equal</d9p1:Operator>
+                              <d9p1:Value>'2312'</d9p1:Value>
+                              <d9p1:_isCSharpExpression>false</d9p1:_isCSharpExpression>
+                              <d9p1:_name>ProcessId</d9p1:_name>
+                            </d9p1:XPathAttribute>
+                          </d10p1:list>
+                        </d9p1:Attributes>
+                        <d9p1:IsEnabled>true</d9p1:IsEnabled>
+                        <d9p1:Name>Button</d9p1:Name>
+                      </d9p1:XPathNode>
+                    </d10p1:list>
+                  </d9p1:Nodes>
+                  <d9p1:ScreenShotBase64>/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAnAD8DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD13wOiyfDnw2jqGVtJtQQe/wC6WtBtFtmbIeZR/dDcfqM1heCpVj8BeGVIcltMtgNqEj/VL1IHH41s5MssoM0kaxsEAjC5PAOTkH1rnnQp4h8s4p27lc7hqmaFvbQ2seyFNoPU9SfqamrIk8uJQ0l/OilgoLeWBknAH3epJA/Gn+UP+fy5/KP/AOJrpjScVaNkv68jNzTNSisvyh/z+XP5R/8AxNHlD/n8ufyj/wDiafJL+v8Ahg50alFZSFkuFj81pFdC2XABBBHoAO/6UXd5a2Fs1xeXMNvAuN0szhFGTgZJ461lOTg7MpanOeFE3eCfCJ2btunW3OzOP3Sf7Jx+a/Wt0Nie5/66j/0Bay/BUMUngLwyzxozJplsVLKCVPlL0rVltpfOd4tjBzkhmK4OAOuD6Cnh5RjN8wqibjocn4j0yRne5ezsb5Zbu22PcsQ8Q8yNfLHysNhOc4x948HuXslxolqkSXUOnefI8ixpOkcEICqNgZ425J+YAKvVvTJ2ZPD/AJsryMbgM7FiF1S4Uc+gHAHsKntNKkst/lBm34z519LL09N4OOvau/21O1rmCjLscvFqNzf3Vvdg4mhltfNkwQuyRI/kA6E5dzkglc8YzWrpF/dXGoI737z29wlwyoVTYoSUKpUqoJGD3Jrc8i6/55w/9/j/APE0eRdf884f+/x/+Jodek+wlCY9Dm+i/wCub/zSsL4h/wDIl3n+9H/6GK37e3kWXzZdoIUqqqSeuM84HoKW9sYdQhWKZ7hVDbgYLiSFs8/xIwOOemcV52IalL3TppppamP4Kdl8BeGQIncNplsCVIwv7peuT/KugZgiFj0AyaKKy6ldCkNViIyIpSD04X/Gpra8juSwQMCpwQwooredOKjdGcZtssUUUVzmpi6/4kttAWHzo3keVh8q8YXPJz/Sta3njubeOeI5jcblJGKKK2lBKmpGUZNzaP/Z</d9p1:ScreenShotBase64>
+                </_xpathSettings>
+              </PropertyValue>
+              <PropertyValue z:Id="i114">
+                <PropertyName>RuntimerKind</PropertyName>
+                <_dataType>Value</_dataType>
+                <_expression i:nil="true" />
+                <_value xmlns:d9p1="http://schemas.datacontract.org/2004/07/Activities.Desktop.Core" i:type="d9p1:RuntimerKind">Local</_value>
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+              </PropertyValue>
+            </PropertyValues>
+            <SelectedOptionId i:nil="true" />
+            <EnableStatus>true</EnableStatus>
+            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+            <RetryCount>-1</RetryCount>
+            <Text>Проверка существования UI-элемента - Кнопка Файл</Text>
+            <_activityFullName>Activities.Desktop.ElementExist</_activityFullName>
+          </AbstractStep>
+          <AbstractStep z:Id="i115" i:type="ExecutedStep">
+            <Childs>
+              <AbstractStep z:Id="i116" i:type="ExecutedStep">
+                <Childs />
+                <Id>3ce2ca0f-48d6-4237-9665-c3def80119cb</Id>
+                <Parent z:Ref="i115" />
+                <PropertyValues>
+                  <PropertyValue z:Id="i117">
+                    <PropertyName>Result</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>bool_needLogin</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                  <PropertyValue z:Id="i118">
+                    <PropertyName>TimeToSearchElement</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>5</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                  <PropertyValue z:Id="i119">
+                    <PropertyName>XPath</PropertyName>
+                    <_dataType>XPath</_dataType>
+                    <_expression i:nil="true" />
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" z:Id="i120">
+                      <d11p1:Nodes xmlns:d12p1="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel">
+                        <d12p1:list>
+                          <d11p1:XPathNode z:Id="i121">
+                            <d11p1:AttributeOperators xmlns:d15p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                            </d11p1:AttributeOperators>
+                            <d11p1:Attributes>
+                              <d12p1:list>
+                                <d11p1:XPathAttribute z:Id="i122">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>true</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>2</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name></d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i123">
+                                  <d11p1:IsEnabled>true</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Contains</d11p1:Operator>
+                                  <d11p1:Value>'TopLevelFrameSDI'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ClassName</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i124">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Window'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i125">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Win32'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>FrameworkId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i126">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsContentElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i127">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsControlElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i128">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'False'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsDialog</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i129">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'False'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsEnabled</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i130">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'окно'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LocalizedControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i131">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Доступ к информационной базе'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>Name</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i132">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'9096'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ProcessId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i133">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'0'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_ChildId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i134">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Доступ к информационной базе'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_Name</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                              </d12p1:list>
+                            </d11p1:Attributes>
+                            <d11p1:IsEnabled>true</d11p1:IsEnabled>
+                            <d11p1:Name>Window</d11p1:Name>
+                          </d11p1:XPathNode>
+                          <d11p1:XPathNode z:Id="i135">
+                            <d11p1:AttributeOperators xmlns:d15p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                            </d11p1:AttributeOperators>
+                            <d11p1:Attributes>
+                              <d12p1:list>
+                                <d11p1:XPathAttribute z:Id="i136">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>true</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value i:nil="true" />
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name></d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i137">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'V8TopLevelFrameTaxiStarter'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ClassName</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i138">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Window'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i139">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Win32'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>FrameworkId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i140">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsContentElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i141">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsControlElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i142">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'False'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsDialog</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i143">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsEnabled</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i144">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'окно'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LocalizedControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i145">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'9096'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ProcessId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i146">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'0'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_ChildId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                              </d12p1:list>
+                            </d11p1:Attributes>
+                            <d11p1:IsEnabled>true</d11p1:IsEnabled>
+                            <d11p1:Name>Window</d11p1:Name>
+                          </d11p1:XPathNode>
+                          <d11p1:XPathNode z:Id="i147">
+                            <d11p1:AttributeOperators xmlns:d15p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                            </d11p1:AttributeOperators>
+                            <d11p1:Attributes>
+                              <d12p1:list>
+                                <d11p1:XPathAttribute z:Id="i148">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>true</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>5</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name></d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i149">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Pane'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i150">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'False'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsContentElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i151">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsControlElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i152">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsEnabled</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i153">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'панель'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LocalizedControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i154">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'9096'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ProcessId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i155">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'0'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_ChildId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                              </d12p1:list>
+                            </d11p1:Attributes>
+                            <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                            <d11p1:Name>Pane</d11p1:Name>
+                          </d11p1:XPathNode>
+                          <d11p1:XPathNode z:Id="i156">
+                            <d11p1:AttributeOperators xmlns:d15p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                            </d11p1:AttributeOperators>
+                            <d11p1:Attributes>
+                              <d12p1:list>
+                                <d11p1:XPathAttribute z:Id="i157">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>true</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value i:nil="true" />
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name></d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i158">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Pane'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i159">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsControlElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i160">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsEnabled</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i161">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'панель'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LocalizedControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i162">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'9096'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ProcessId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i163">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'0'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_ChildId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                              </d12p1:list>
+                            </d11p1:Attributes>
+                            <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                            <d11p1:Name>Pane</d11p1:Name>
+                          </d11p1:XPathNode>
+                          <d11p1:XPathNode z:Id="i164">
+                            <d11p1:AttributeOperators xmlns:d15p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                            </d11p1:AttributeOperators>
+                            <d11p1:Attributes>
+                              <d12p1:list>
+                                <d11p1:XPathAttribute z:Id="i165">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>true</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value i:nil="true" />
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name></d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i166">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Pane'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i167">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'False'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsContentElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i168">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsControlElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i169">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsEnabled</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i170">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'панель'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LocalizedControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i171">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'9096'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ProcessId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i172">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'0'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_ChildId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                              </d12p1:list>
+                            </d11p1:Attributes>
+                            <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                            <d11p1:Name>Pane</d11p1:Name>
+                          </d11p1:XPathNode>
+                          <d11p1:XPathNode z:Id="i173">
+                            <d11p1:AttributeOperators xmlns:d15p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                              <d15p1:string>and</d15p1:string>
+                            </d11p1:AttributeOperators>
+                            <d11p1:Attributes>
+                              <d12p1:list>
+                                <d11p1:XPathAttribute z:Id="i174">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>true</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>1</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name></d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i175">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Button'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i176">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsControlElement</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i177">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsEnabled</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i178">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'True'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>IsKeyboardFocusable</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i179">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'кнопка'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LocalizedControlType</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i180">
+                                  <d11p1:IsEnabled>true</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Войти'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>Name</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i181">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'9096'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>ProcessId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i182">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'0'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_ChildId</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i183">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Нажать'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_DefaultAction</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                                <d11p1:XPathAttribute z:Id="i184">
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
+                                  <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
+                                  <d11p1:Operator>Equal</d11p1:Operator>
+                                  <d11p1:Value>'Войти'</d11p1:Value>
+                                  <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
+                                  <d11p1:_name>LegacyIAccessiblePattern_Name</d11p1:_name>
+                                </d11p1:XPathAttribute>
+                              </d12p1:list>
+                            </d11p1:Attributes>
+                            <d11p1:IsEnabled>true</d11p1:IsEnabled>
+                            <d11p1:Name>Button</d11p1:Name>
+                          </d11p1:XPathNode>
+                        </d12p1:list>
+                      </d11p1:Nodes>
+                      <d11p1:ScreenShotBase64>/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAuAHgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iisoC6vr69Vb+e2jt5ViVYUjO792rkksrf38cY6UAatFZ/9nXX/AEGr/wD74g/+N0f2ddf9Bq//AO+IP/jdAGhRWf8A2ddf9Bq//wC+IP8A43R/Z11/0Gr/AP74g/8AjdAGhRWf/Z11/wBBq/8A++IP/jdH9nXX/Qav/wDviD/43QBoUVn/ANnXX/Qav/8AviD/AON0f2ddf9Bq/wD++IP/AI3QBoUVn/2ddf8AQav/APviD/43R/Z11/0Gr/8A74g/+N0AaFFZ/wDZ11/0Gr//AL4g/wDjdREXVjfWStfz3MdxK0TLMkY2/u2cEFVX+5jnPWgDVooooAKztO/4/tX/AOvtf/REVaNZNm+3UdWH/T0v/omKgDWoqt5vvR5vvQBZry68vNRXTNdvYTrAnttUmVL5b0mCCNZccxbzlQM8CM8V6R5vvXOv4XgeG9tv7T1AWd7O889sDEFYu25hnZuAPThulADrvxg8X9ozWunfarHTQv2mfzghOVDHy1wd2AeclfbNY3iTxtBY3d4y/bC1k8AjhguNi3asoky2UJQLnnHJyAeDitq78L2F1LdFZ7qCC7Ci6t4ZAI5goAGcgleBg7SM96hvfBmkX9zqlxIZ1k1GKOGQoVHlqm3AT5eM7FznPTtQBeGuaifFTaJ/Z1pgQi5877Y3+qLlM7fL+/xnbnH+1WZo/wAQYdY1LRrGOxKyahHI8p83It9oYgfd+YkLntjI61tjT4Brx1jfJ9oNqLXbkbNgYtnGM5yfWsrSfB2laMdONq9xusZJZUZ2UmRpF2nfgc4GMYx0oA62iq3m+9Hm+9AFms7Uf+P7SP8Ar7b/ANES1Y833qlePu1HSR/09N/6JloA1qKKKACsq60aSW8luLbUJ7UykGRURGDEADPzA44AH4Vq0UAYn9iX3/Qduv8AvzF/8TR/Yl9/0Hbr/vzF/wDE1t0UAYn9iX3/AEHbr/vzF/8AE0f2Jff9B26/78xf/E1t0UAYn9iX3/Qduv8AvzF/8TR/Yl9/0Hbr/vzF/wDE1t0UAYn9iX3/AEHbr/vzF/8AE0f2Jff9B26/78xf/E1t0UAYn9iX3/Qduv8AvzF/8TR/Yl9/0Hbr/vzF/wDE1t0UAYn9iX3/AEHbr/vzF/8AE1Na6NJFeRXFzqE90YiTGroihSQRn5QM8Ej8a1aKACiiigD/2Q==</d11p1:ScreenShotBase64>
+                    </_xpathSettings>
+                  </PropertyValue>
+                  <PropertyValue z:Id="i185">
+                    <PropertyName>RuntimerKind</PropertyName>
+                    <_dataType>Value</_dataType>
+                    <_expression i:nil="true" />
+                    <_value xmlns:d11p1="http://schemas.datacontract.org/2004/07/Activities.Desktop.Core" i:type="d11p1:RuntimerKind">Local</_value>
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                </PropertyValues>
+                <SelectedOptionId i:nil="true" />
+                <EnableStatus>true</EnableStatus>
+                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                <RetryCount>-1</RetryCount>
+                <Text>Проверка существования UI-элемента - Кнопка Войти</Text>
+                <_activityFullName>Activities.Desktop.ElementExist</_activityFullName>
+              </AbstractStep>
+              <AbstractStep z:Id="i186" i:type="ExecutedStep">
+                <Childs>
+                  <AbstractStep z:Id="i187" i:type="ExecutedStep">
+                    <Childs>
+                      <AbstractStep z:Id="i188" i:type="ExecutedStep">
+                        <Childs />
+                        <Id>e69dd225-3a15-4d6d-9eba-696e54c08864</Id>
+                        <Parent z:Ref="i187" />
+                        <PropertyValues>
+                          <PropertyValue z:Id="i189">
+                            <PropertyName>Text</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>$"Неверно заданы логин или пароль, не удалось зайти в 1С."</_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                          <PropertyValue z:Id="i190">
+                            <PropertyName>Exception</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>new PIX.Core.Exceptions.BusinessRuleException($"Неверно заданы логин или пароль, не удалось зайти в 1С.")</_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                        </PropertyValues>
+                        <SelectedOptionId>1</SelectedOptionId>
+                        <EnableStatus>true</EnableStatus>
+                        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                        <RetryCount>-1</RetryCount>
+                        <Text>Вызвать исключение - Бизнес</Text>
+                        <_activityFullName>BR.Core.Base.ThrowException</_activityFullName>
+                      </AbstractStep>
+                    </Childs>
+                    <Id>e6a038f5-31a1-4643-91fc-05416326fb54</Id>
+                    <Parent z:Ref="i186" />
+                    <PropertyValues />
+                    <SelectedOptionId i:nil="true" />
+                    <EnableStatus>true</EnableStatus>
+                    <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                    <RetryCount>-1</RetryCount>
+                    <Text></Text>
+                    <_activityFullName>BR.Core.Base.IfTrue</_activityFullName>
+                  </AbstractStep>
+                  <AbstractStep z:Id="i191" i:type="ExecutedStep">
+                    <Childs />
+                    <Id>61186698-53d1-49dc-8242-bc48c239d4b4</Id>
+                    <Parent z:Ref="i186" />
+                    <PropertyValues />
+                    <SelectedOptionId i:nil="true" />
+                    <EnableStatus>true</EnableStatus>
+                    <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                    <RetryCount>-1</RetryCount>
+                    <Text></Text>
+                    <_activityFullName>BR.Core.Base.IfFalse</_activityFullName>
+                  </AbstractStep>
+                </Childs>
+                <Id>620fdac5-45a2-4e46-936f-dc67091d5032</Id>
+                <Parent z:Ref="i115" />
+                <PropertyValues>
+                  <PropertyValue z:Id="i192">
+                    <PropertyName>Condition</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>bool_needLogin</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                </PropertyValues>
+                <SelectedOptionId i:nil="true" />
+                <EnableStatus>true</EnableStatus>
+                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                <RetryCount>-1</RetryCount>
+                <Text>Кнопка Войти ?</Text>
+                <_activityFullName>BR.Core.Base.If</_activityFullName>
+              </AbstractStep>
+              <AbstractStep z:Id="i193" i:type="ExecutedStep">
+                <Childs>
+                  <AbstractStep z:Id="i194" i:type="ExecutedStep">
+                    <Childs>
+                      <AbstractStep z:Id="i195" i:type="ExecutedStep">
+                        <Childs />
+                        <Id>f198a2ad-7009-4fda-b999-1566c544caad</Id>
+                        <Parent z:Ref="i194" />
+                        <PropertyValues>
+                          <PropertyValue z:Id="i196">
+                            <PropertyName>Text</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>$"Превышено время ожидания запуска 1С"</_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                          <PropertyValue z:Id="i197">
+                            <PropertyName>Exception</PropertyName>
+                            <_dataType>Value</_dataType>
+                            <_expression></_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                        </PropertyValues>
+                        <SelectedOptionId>0</SelectedOptionId>
+                        <EnableStatus>true</EnableStatus>
+                        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                        <RetryCount>-1</RetryCount>
+                        <Text>Вызвать исключение - Системное</Text>
+                        <_activityFullName>BR.Core.Base.ThrowException</_activityFullName>
+                      </AbstractStep>
+                    </Childs>
+                    <Id>0579a9da-78d9-46d1-ba4f-c1efa115623a</Id>
+                    <Parent z:Ref="i193" />
+                    <PropertyValues />
+                    <SelectedOptionId i:nil="true" />
+                    <EnableStatus>true</EnableStatus>
+                    <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                    <RetryCount>-1</RetryCount>
+                    <Text></Text>
+                    <_activityFullName>BR.Core.Base.IfTrue</_activityFullName>
+                  </AbstractStep>
+                  <AbstractStep z:Id="i198" i:type="ExecutedStep">
+                    <Childs>
+                      <AbstractStep z:Id="i199" i:type="ExecutedStep">
+                        <Childs />
+                        <Id>fb3b699a-f6c9-48fc-b090-b946bea4dee6</Id>
+                        <Parent z:Ref="i198" />
+                        <PropertyValues>
+                          <PropertyValue z:Id="i200">
+                            <PropertyName>Result</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>bool_settingsExists</_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                          <PropertyValue z:Id="i201">
+                            <PropertyName>TimeToSearchElement</PropertyName>
+                            <_dataType>Expression</_dataType>
+                            <_expression>5</_expression>
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                          <PropertyValue z:Id="i202">
+                            <PropertyName>XPath</PropertyName>
+                            <_dataType>XPath</_dataType>
+                            <_expression i:nil="true" />
+                            <_value i:nil="true" />
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" z:Id="i203">
+                              <d15p1:Nodes xmlns:d16p1="http://schemas.datacontract.org/2004/07/System.Collections.ObjectModel">
+                                <d16p1:list>
+                                  <d15p1:XPathNode z:Id="i204">
+                                    <d15p1:AttributeOperators xmlns:d19p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                    </d15p1:AttributeOperators>
+                                    <d15p1:Attributes>
+                                      <d16p1:list>
+                                        <d15p1:XPathAttribute z:Id="i205">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>true</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>2</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name></d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i206">
+                                          <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Contains</d15p1:Operator>
+                                          <d15p1:Value>'TopLevelFrame'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ClassName</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i207">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Window'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i208">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Win32'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>FrameworkId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i209">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsContentElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i210">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsControlElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i211">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsEnabled</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i212">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsKeyboardFocusable</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i213">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'окно'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LocalizedControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i214">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'K7:063 - Спортивная / 1.7.133.0 / RPA_Bot_Sportivnaya'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>Name</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i215">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'2312'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ProcessId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i216">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'0'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_ChildId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i217">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'K7:063 - Спортивная / 1.7.133.0 / RPA_Bot_Sportivnaya'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_Name</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i218">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>TransformPattern_CanMove</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i219">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>TransformPattern_CanResize</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i220">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>TransformPattern_CanRotate</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i221">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>WindowPattern_CanMaximize</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i222">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>WindowPattern_CanMinimize</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i223">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>WindowPattern_IsModal</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i224">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>WindowPattern_IsTopmost</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                      </d16p1:list>
+                                    </d15p1:Attributes>
+                                    <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                    <d15p1:Name>Window</d15p1:Name>
+                                  </d15p1:XPathNode>
+                                  <d15p1:XPathNode z:Id="i225">
+                                    <d15p1:AttributeOperators xmlns:d19p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                    </d15p1:AttributeOperators>
+                                    <d15p1:Attributes>
+                                      <d16p1:list>
+                                        <d15p1:XPathAttribute z:Id="i226">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>true</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value i:nil="true" />
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name></d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i227">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Pane'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i228">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsContentElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i229">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsControlElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i230">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsEnabled</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i231">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'панель'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LocalizedControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i232">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'2312'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ProcessId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i233">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'0'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_ChildId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                      </d16p1:list>
+                                    </d15p1:Attributes>
+                                    <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                    <d15p1:Name>Pane</d15p1:Name>
+                                  </d15p1:XPathNode>
+                                  <d15p1:XPathNode z:Id="i234">
+                                    <d15p1:AttributeOperators xmlns:d19p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                    </d15p1:AttributeOperators>
+                                    <d15p1:Attributes>
+                                      <d16p1:list>
+                                        <d15p1:XPathAttribute z:Id="i235">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>true</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>1</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name></d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i236">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Pane'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i237">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsContentElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i238">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsControlElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i239">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsEnabled</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i240">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'панель'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LocalizedControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i241">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'2312'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ProcessId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i242">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'0'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_ChildId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                      </d16p1:list>
+                                    </d15p1:Attributes>
+                                    <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                    <d15p1:Name>Pane</d15p1:Name>
+                                  </d15p1:XPathNode>
+                                  <d15p1:XPathNode z:Id="i243">
+                                    <d15p1:AttributeOperators xmlns:d19p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                    </d15p1:AttributeOperators>
+                                    <d15p1:Attributes>
+                                      <d16p1:list>
+                                        <d15p1:XPathAttribute z:Id="i244">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>true</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>4</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name></d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i245">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Pane'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i246">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsContentElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i247">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsControlElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i248">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsEnabled</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i249">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'панель'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LocalizedControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i250">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'2312'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ProcessId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i251">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'0'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_ChildId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                      </d16p1:list>
+                                    </d15p1:Attributes>
+                                    <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                    <d15p1:Name>Pane</d15p1:Name>
+                                  </d15p1:XPathNode>
+                                  <d15p1:XPathNode z:Id="i252">
+                                    <d15p1:AttributeOperators xmlns:d19p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                    </d15p1:AttributeOperators>
+                                    <d15p1:Attributes>
+                                      <d16p1:list>
+                                        <d15p1:XPathAttribute z:Id="i253">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>true</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value i:nil="true" />
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name></d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i254">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Pane'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i255">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'False'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsContentElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i256">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsControlElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i257">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsEnabled</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i258">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'панель'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LocalizedControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i259">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'2312'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ProcessId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i260">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'0'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_ChildId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                      </d16p1:list>
+                                    </d15p1:Attributes>
+                                    <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                    <d15p1:Name>Pane</d15p1:Name>
+                                  </d15p1:XPathNode>
+                                  <d15p1:XPathNode z:Id="i261">
+                                    <d15p1:AttributeOperators xmlns:d19p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                    </d15p1:AttributeOperators>
+                                    <d15p1:Attributes>
+                                      <d16p1:list>
+                                        <d15p1:XPathAttribute z:Id="i262">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>true</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value i:nil="true" />
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name></d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i263">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'ToolBar'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i264">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsContentElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i265">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsControlElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i266">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsEnabled</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i267">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsKeyboardFocusable</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i268">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'панель инструментов'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LocalizedControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i269">
+                                          <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Главное меню'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>Name</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i270">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'2312'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ProcessId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i271">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'0'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_ChildId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i272">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Главное меню'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LegacyIAccessiblePattern_Name</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                      </d16p1:list>
+                                    </d15p1:Attributes>
+                                    <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                    <d15p1:Name>ToolBar</d15p1:Name>
+                                  </d15p1:XPathNode>
+                                  <d15p1:XPathNode z:Id="i273">
+                                    <d15p1:AttributeOperators xmlns:d19p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                      <d19p1:string>and</d19p1:string>
+                                    </d15p1:AttributeOperators>
+                                    <d15p1:Attributes>
+                                      <d16p1:list>
+                                        <d15p1:XPathAttribute z:Id="i274">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>true</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>1</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name></d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i275">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Button'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i276">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsContentElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i277">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsControlElement</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i278">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsEnabled</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i279">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'True'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>IsKeyboardFocusable</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i280">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'кнопка'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>LocalizedControlType</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i281">
+                                          <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'Файл'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>Name</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                        <d15p1:XPathAttribute z:Id="i282">
+                                          <d15p1:IsEnabled>false</d15p1:IsEnabled>
+                                          <d15p1:IsPositionAttribute>false</d15p1:IsPositionAttribute>
+                                          <d15p1:Operator>Equal</d15p1:Operator>
+                                          <d15p1:Value>'2312'</d15p1:Value>
+                                          <d15p1:_isCSharpExpression>false</d15p1:_isCSharpExpression>
+                                          <d15p1:_name>ProcessId</d15p1:_name>
+                                        </d15p1:XPathAttribute>
+                                      </d16p1:list>
+                                    </d15p1:Attributes>
+                                    <d15p1:IsEnabled>true</d15p1:IsEnabled>
+                                    <d15p1:Name>Button</d15p1:Name>
+                                  </d15p1:XPathNode>
+                                </d16p1:list>
+                              </d15p1:Nodes>
+                              <d15p1:ScreenShotBase64>/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAnAD8DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD13wOiyfDnw2jqGVtJtQQe/wC6WtBtFtmbIeZR/dDcfqM1heCpVj8BeGVIcltMtgNqEj/VL1IHH41s5MssoM0kaxsEAjC5PAOTkH1rnnQp4h8s4p27lc7hqmaFvbQ2seyFNoPU9SfqamrIk8uJQ0l/OilgoLeWBknAH3epJA/Gn+UP+fy5/KP/AOJrpjScVaNkv68jNzTNSisvyh/z+XP5R/8AxNHlD/n8ufyj/wDiafJL+v8Ahg50alFZSFkuFj81pFdC2XABBBHoAO/6UXd5a2Fs1xeXMNvAuN0szhFGTgZJ461lOTg7MpanOeFE3eCfCJ2btunW3OzOP3Sf7Jx+a/Wt0Nie5/66j/0Bay/BUMUngLwyzxozJplsVLKCVPlL0rVltpfOd4tjBzkhmK4OAOuD6Cnh5RjN8wqibjocn4j0yRne5ezsb5Zbu22PcsQ8Q8yNfLHysNhOc4x948HuXslxolqkSXUOnefI8ixpOkcEICqNgZ425J+YAKvVvTJ2ZPD/AJsryMbgM7FiF1S4Uc+gHAHsKntNKkst/lBm34z519LL09N4OOvau/21O1rmCjLscvFqNzf3Vvdg4mhltfNkwQuyRI/kA6E5dzkglc8YzWrpF/dXGoI737z29wlwyoVTYoSUKpUqoJGD3Jrc8i6/55w/9/j/APE0eRdf884f+/x/+Jodek+wlCY9Dm+i/wCub/zSsL4h/wDIl3n+9H/6GK37e3kWXzZdoIUqqqSeuM84HoKW9sYdQhWKZ7hVDbgYLiSFs8/xIwOOemcV52IalL3TppppamP4Kdl8BeGQIncNplsCVIwv7peuT/KugZgiFj0AyaKKy6ldCkNViIyIpSD04X/Gpra8juSwQMCpwQwooredOKjdGcZtssUUUVzmpi6/4kttAWHzo3keVh8q8YXPJz/Sta3njubeOeI5jcblJGKKK2lBKmpGUZNzaP/Z</d15p1:ScreenShotBase64>
+                            </_xpathSettings>
+                          </PropertyValue>
+                          <PropertyValue z:Id="i283">
+                            <PropertyName>RuntimerKind</PropertyName>
+                            <_dataType>Value</_dataType>
+                            <_expression i:nil="true" />
+                            <_value xmlns:d15p1="http://schemas.datacontract.org/2004/07/Activities.Desktop.Core" i:type="d15p1:RuntimerKind">Local</_value>
+                            <_xpathSettings xmlns:d15p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                          </PropertyValue>
+                        </PropertyValues>
+                        <SelectedOptionId i:nil="true" />
+                        <EnableStatus>true</EnableStatus>
+                        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                        <RetryCount>-1</RetryCount>
+                        <Text>Проверка существования UI-элемента - Кнопка Файл</Text>
+                        <_activityFullName>Activities.Desktop.ElementExist</_activityFullName>
+                      </AbstractStep>
+                    </Childs>
+                    <Id>763281fe-07a5-40c6-bb64-a2f1f03bb202</Id>
+                    <Parent z:Ref="i193" />
+                    <PropertyValues />
+                    <SelectedOptionId i:nil="true" />
+                    <EnableStatus>true</EnableStatus>
+                    <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                    <RetryCount>-1</RetryCount>
+                    <Text></Text>
+                    <_activityFullName>BR.Core.Base.IfFalse</_activityFullName>
+                  </AbstractStep>
+                </Childs>
+                <Id>47dc7945-58c5-4f9c-bc8d-47a0df672c2a</Id>
+                <Parent z:Ref="i115" />
+                <PropertyValues>
+                  <PropertyValue z:Id="i284">
+                    <PropertyName>Condition</PropertyName>
+                    <_dataType>Expression</_dataType>
+                    <_expression>DateTime.Now &gt; dtime_maxWait</_expression>
+                    <_value i:nil="true" />
+                    <_xpathSettings xmlns:d11p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+                  </PropertyValue>
+                </PropertyValues>
+                <SelectedOptionId i:nil="true" />
+                <EnableStatus>true</EnableStatus>
+                <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+                <RetryCount>-1</RetryCount>
+                <Text>Условия выхода из цикла</Text>
+                <_activityFullName>BR.Core.Base.If</_activityFullName>
+              </AbstractStep>
+            </Childs>
+            <Id>5832131f-2e53-4ba0-aea9-a081212190d3</Id>
+            <Parent z:Ref="i26" />
+            <PropertyValues>
+              <PropertyValue z:Id="i285">
+                <PropertyName>Condition</PropertyName>
+                <_dataType>Expression</_dataType>
+                <_expression>bool_settingsExists == false</_expression>
+                <_value i:nil="true" />
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+              </PropertyValue>
+              <PropertyValue z:Id="i286">
+                <PropertyName>Counter</PropertyName>
+                <_dataType>Expression</_dataType>
+                <_expression></_expression>
+                <_value i:nil="true" />
+                <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
+              </PropertyValue>
+            </PropertyValues>
+            <SelectedOptionId i:nil="true" />
+            <EnableStatus>true</EnableStatus>
+            <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+            <RetryCount>-1</RetryCount>
+            <Text>Цикл пока - Не появится окно настроек</Text>
+            <_activityFullName>BR.Core.Base.LoopWhile</_activityFullName>
+          </AbstractStep>
+        </Childs>
+        <Id>ff2ac96c-7917-4c61-85db-c3cf7b91ed1e</Id>
+        <Parent z:Ref="i2" />
+        <PropertyValues />
+        <SelectedOptionId i:nil="true" />
+        <EnableStatus>true</EnableStatus>
+        <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+        <RetryCount>-1</RetryCount>
+        <Text>Ожидание 1С</Text>
+        <_activityFullName>BR.Core.Base.Container</_activityFullName>
+      </AbstractStep>
+    </Childs>
+    <Id>71b67d3f-c1b3-498f-b496-ba3aa244713f</Id>
+    <Parent i:nil="true" />
+    <PropertyValues />
+    <SelectedOptionId i:nil="true" />
+    <EnableStatus>true</EnableStatus>
+    <ExceptionHandlingMode>Default</ExceptionHandlingMode>
+    <RetryCount>-1</RetryCount>
+    <Text></Text>
+    <_activityFullName>BR.Core.Base.Container</_activityFullName>
+  </Logic>
+  <Name>1С_Launch.pix</Name>
+  <Namespaces xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <Params>
+    <Parameter z:Id="i287">
+      <DefaultValueExpression>@"srv-udc-app-03\db_063"</DefaultValueExpression>
+      <Description>Данные вида - "Кластер серверов/Имя ИБ"</Description>
+      <Name>in_str_1c</Name>
+      <TypeString>System.String</TypeString>
+    </Parameter>
+    <Parameter z:Id="i288">
+      <DefaultValueExpression>"RPA_Bot_Sportivnaya"</DefaultValueExpression>
+      <Description></Description>
+      <Name>in_str_1cLogin</Name>
+      <TypeString>System.String</TypeString>
+    </Parameter>
+    <Parameter z:Id="i289">
+      <DefaultValueExpression></DefaultValueExpression>
+      <Description></Description>
+      <Name>in_secStr_1cPassword</Name>
+      <TypeString>System.Security.SecureString</TypeString>
+    </Parameter>
+    <Parameter z:Id="i290">
+      <DefaultValueExpression>@"C:\Program Files\1cv8\common\1cestart.exe"</DefaultValueExpression>
+      <Description></Description>
+      <Name>in_str_1cExePath</Name>
+      <TypeString>System.String</TypeString>
+    </Parameter>
+  </Params>
+  <TemplateVersion xmlns:d2p1="http://schemas.datacontract.org/2004/07/System" i:nil="true" />
+  <Variables xmlns:d2p1="http://schemas.datacontract.org/2004/07/BR.Logic.Params" />
+  <Version i:nil="true" />
+</Script>
