@@ -95,7 +95,7 @@
                       <PropertyValue z:Id="i17">
                         <PropertyName>URL</PropertyName>
                         <_dataType>Expression</_dataType>
-                        <_expression>row_deal["Url"].ToString()</_expression>
+                        <_expression>row_deal["Link"].ToString()</_expression>
                         <_value i:nil="true" />
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
@@ -157,7 +157,7 @@
                       <PropertyValue z:Id="i25">
                         <PropertyName>SearchString</PropertyName>
                         <_dataType>Expression</_dataType>
-                        <_expression>@"//div[contains(@class,'section-comment')]//div[contains(@class,'content-detail-description')]"</_expression>
+                        <_expression>@"//div[contains(@class,'crm-entity-stream-section-today-label')]/following-sibling::div[1][contains(@class, 'crm-entity-stream-section-history')]//span[contains(@class,'editable-text')]"</_expression>
                         <_value i:nil="true" />
                         <_xpathSettings xmlns:d13p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
                       </PropertyValue>
@@ -321,8 +321,8 @@
               <PropertyValue z:Id="i39">
                 <PropertyName>Condition</PropertyName>
                 <_dataType>Expression</_dataType>
-                <_expression>row_deal[""].ToString().Contains(in_row_transactionItem[""].ToString().Trim()) 
-&amp;&amp; row_deal[""].ToString().Contains(in_row_transactionItem[""].ToString().Trim())</_expression>
+                <_expression>row_deal["Theme"].ToString().Equals(in_row_transactionItem["Тема"].ToString().Trim()) 
+&amp;&amp; row_deal["Direction"].ToString().Contains(in_row_transactionItem["Направление"].ToString().Trim())</_expression>
                 <_value i:nil="true" />
                 <_xpathSettings xmlns:d9p1="http://schemas.datacontract.org/2004/07/BR.XPath" i:nil="true" />
               </PropertyValue>

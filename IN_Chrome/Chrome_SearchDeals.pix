@@ -2430,7 +2430,7 @@
         <EnableStatus>true</EnableStatus>
         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
         <RetryCount>-1</RetryCount>
-        <Text></Text>
+        <Text>Ожидать всплывающего меню с Найти</Text>
         <_activityFullName>Activities.Web.WaitForWebElement</_activityFullName>
       </AbstractStep>
       <AbstractStep z:Id="i295" i:type="ExecutedStep">
@@ -2499,7 +2499,7 @@
         <EnableStatus>true</EnableStatus>
         <ExceptionHandlingMode>Default</ExceptionHandlingMode>
         <RetryCount>-1</RetryCount>
-        <Text>Для направления, кода и темы нужно проверить xpath</Text>
+        <Text>Клик найти</Text>
         <_activityFullName>Activities.Web.ClickElement</_activityFullName>
       </AbstractStep>
       <AbstractStep z:Id="i304" i:type="ExecutedStep">
@@ -2529,8 +2529,9 @@
     &lt;column name=""Deal"" attrname=""innerText"" xpath=""//div[@class='crm-info-wrapper']/div[@class='crm-info-title-wrapper']/a[contains(@href,'deal/details')]"" /&gt;
     &lt;column name=""Link"" attrname=""href"" xpath=""//div[@class='crm-info-wrapper']/div[@class='crm-info-title-wrapper']/a[contains(@href,'deal/details')]"" /&gt;
     &lt;column name=""DealInfo"" attrname=""innerText"" xpath=""//td[3]//div[@class='crm-info-wrapper']/div[@class='crm-info-description-wrapper']"" /&gt;
-    &lt;column name=""Direction"" attrname=""innerText"" xpath=""//tr[not(@hidden='true')]/td[54]/div[@class='main-grid-cell-inner']/span"" /&gt;
-    &lt;column name=""CustomerCode"" attrname=""innerText"" xpath=""//td[55]/div[@class='main-grid-cell-inner']/span[text()]"" /&gt;
+    &lt;column name=""Direction"" attrname=""innerText"" xpath=""//tbody//tr/td[11]/div[@class='main-grid-cell-inner']/span"" /&gt;
+     &lt;column name=""Theme"" attrname=""innerText"" xpath=""//tbody//tr/td[51]/div[@class='main-grid-cell-inner']/span"" /&gt;
+    &lt;column name=""CustomerCode"" attrname=""innerText"" xpath=""//tbody//tr/td[51]/div[@class='main-grid-cell-inner']/span"" /&gt;
   &lt;/columns&gt;
 &lt;/pointpath&gt;"</_expression>
             <_value i:nil="true" />
