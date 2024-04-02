@@ -2358,8 +2358,8 @@
                                 <d11p1:XPathAttribute z:Id="i276">
                                   <d11p1:IsEnabled>true</d11p1:IsEnabled>
                                   <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
-                                  <d11p1:Operator>Equal</d11p1:Operator>
-                                  <d11p1:Value>'V8TopLevelFrame'</d11p1:Value>
+                                  <d11p1:Operator>Contains</d11p1:Operator>
+                                  <d11p1:Value>'TopLevelFrame'</d11p1:Value>
                                   <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
                                   <d11p1:_name>ClassName</d11p1:_name>
                                 </d11p1:XPathAttribute>
@@ -2420,7 +2420,7 @@
                                   <d11p1:_name>LocalizedControlType</d11p1:_name>
                                 </d11p1:XPathAttribute>
                                 <d11p1:XPathAttribute z:Id="i284">
-                                  <d11p1:IsEnabled>true</d11p1:IsEnabled>
+                                  <d11p1:IsEnabled>false</d11p1:IsEnabled>
                                   <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
                                   <d11p1:Operator>Equal</d11p1:Operator>
                                   <d11p1:Value>'K7:063 - Спортивная / 1.7.133.0 / RPA_Bot_Sportivnaya'</d11p1:Value>
@@ -2536,8 +2536,8 @@
                                 <d11p1:XPathAttribute z:Id="i297">
                                   <d11p1:IsEnabled>true</d11p1:IsEnabled>
                                   <d11p1:IsPositionAttribute>false</d11p1:IsPositionAttribute>
-                                  <d11p1:Operator>Equal</d11p1:Operator>
-                                  <d11p1:Value>'V8PopupBarShadow'</d11p1:Value>
+                                  <d11p1:Operator>Contains</d11p1:Operator>
+                                  <d11p1:Value>'PopupBarShadow'</d11p1:Value>
                                   <d11p1:_isCSharpExpression>false</d11p1:_isCSharpExpression>
                                   <d11p1:_name>ClassName</d11p1:_name>
                                 </d11p1:XPathAttribute>
@@ -14122,12 +14122,6 @@
   <Namespaces xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <Params>
     <Parameter z:Id="i1611">
-      <DefaultValueExpression></DefaultValueExpression>
-      <Description></Description>
-      <Name>NewParameter</Name>
-      <TypeString>System.Object</TypeString>
-    </Parameter>
-    <Parameter z:Id="i1612">
       <DefaultValueExpression></DefaultValueExpression>
       <Description></Description>
       <Name>in_row_transactionItem</Name>
